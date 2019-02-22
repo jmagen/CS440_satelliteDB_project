@@ -1,8 +1,9 @@
+import os
 import urllib2
 from bs4 import BeautifulSoup
 
 
-csv = "satellites_by_category.csv"
+csv = os.path.join(os.path.dirname(__file__) + "\\..\\Data", 'satellites_by_category.csv')
 f = open(csv, "w")
 
 headers = "satname, satId, intl_code, launchDate, period, category"

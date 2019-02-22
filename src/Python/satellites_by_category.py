@@ -10,7 +10,8 @@ f.write(headers)
 
 
 url = "https://www.n2yo.com/satellites/?c=";
-for i in range(1,51):
+for i in range(1,52): #iterate through all categories except Amateur Radio
+	if i == 18: continue
 	file = urllib2.urlopen(url + `i`)
 	html = file.read()
 	file.close()
@@ -38,7 +39,7 @@ for i in range(1,51):
 						if td_count == 5:
 							f.write(category)
 							break
-						print(td.string)
+						#print(td.string)
 						if td.string is None: f.write("NULL,")
 						else: f.write(td.string.replace(",", "") + ", ")
 						td_count += 1

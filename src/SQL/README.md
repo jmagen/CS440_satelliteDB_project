@@ -1,2 +1,2 @@
 # SQL
-The json data from the JSON directory was converted into SQL through the online converter SQLizer: https://sqlizer.io/#/
+The csv files generated from the python scripts (found in the /Python directory) were imported into tables in MySQL. These files are exports of the sql tables. 

@@ -3,7 +3,7 @@ import urllib2
 from bs4 import BeautifulSoup
 
 
-csv = os.path.join(os.path.dirname(__file__) + "\\..\\Data", 'satellites_by_category.csv')
+csv = os.path.join(os.path.dirname(__file__) + "\\..\\Data", 'satellites_by_category2.csv')
 f = open(csv, "w")
 
 headers = "satname, satId, intl_code, launchDate, period, category"
@@ -12,7 +12,7 @@ f.write(headers)
 
 url = "https://www.n2yo.com/satellites/?c=";
 for i in range(1,52): #iterate through all categories except Amateur Radio
-	if i == 18: continue
+	#if i == 18: continue
 	file = urllib2.urlopen(url + `i`)
 	html = file.read()
 	file.close()
@@ -37,10 +37,26 @@ for i in range(1,52): #iterate through all categories except Amateur Radio
 				if tr_count > 0 : #skip headers
 					td_count = 0
 					for td in tr.findAll("td"):
-						if td_count == 5:
+						if i == 18 and td_count == 0:
+							for a in td.findAll("a"):
+								f.write(a.string + ", ")
+							td_count += 1
+							continue
+						if i == 18 and td_count == 3:
+							f.write("NULL,")
+							td_count += 1
+							continue
+						if i == 18 and td_count == 4:
+							td_count += 1
+							continue
+
+						if i == 18 and td_count == 6:
 							f.write(category)
 							break
-						#print(td.string)
+
+						if i != 18 and td_count == 5:
+							f.write(category)
+							break
 						if td.string is None: f.write("NULL,")
 						else: f.write(td.string.replace(",", "") + ", ")
 						td_count += 1

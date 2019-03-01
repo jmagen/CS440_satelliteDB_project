@@ -30,18 +30,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `satellitesByAgency` (
   `satname` varchar(28) DEFAULT NULL,
-  ` satId` int(5) DEFAULT NULL,
-  ` intl_code` varchar(11) DEFAULT NULL,
-  ` launchDate` varchar(18) DEFAULT NULL,
-  ` period` varchar(6) DEFAULT NULL,
-  ` agency` varchar(73) DEFAULT NULL
+  `satId` int(5) DEFAULT NULL,
+  `intl_code` varchar(11) DEFAULT NULL,
+  `launchDate` varchar(18) DEFAULT NULL,
+  `period` varchar(6) DEFAULT NULL,
+  `agency` varchar(73) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `satellitesByAgency`
 --
 
-INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` agency`) VALUES
+INSERT INTO `satellitesByAgency` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `agency`) VALUES
 ('ALCOMSAT 1', 43039, ' 2017-078A', ' December 10 2017', '1436.1', ' ALGERIA '),
 ('ALSAT 1N', 41789, ' 2016-059G', ' September 26 2016', '98.3', ' ALGERIA '),
 ('ALSAT 2B', 41786, ' 2016-059D', ' September 26 2016', '98.2', ' ALGERIA '),
@@ -504,7 +504,7 @@ INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDat
 ('COSMOS 2324 (GLONASS)', 23735, ' 1995-068B', ' December 14 1995', '675.7', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
 ('COSMOS 2325 (GLONASS)', 23734, ' 1995-068A', ' December 14 1995', '675.7', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
 ('GALS 2', 23717, ' 1995-063A', ' November 17 1995', '1441.6', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) ');
-INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` agency`) VALUES
+INSERT INTO `satellitesByAgency` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `agency`) VALUES
 ('COSMOS 2322', 23704, ' 1995-058A', ' October 31 1995', '101.9', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
 ('LUCH 1', 23680, ' 1995-054A', ' October 11 1995', '1436', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
 ('SICH 1', 23657, ' 1995-046A', ' August 31 1995', '96.9', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
@@ -924,7 +924,7 @@ INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDat
 ('COSMOS 1766', 16881, ' 1986-055A', ' July 28 1986', '95.3', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
 ('COSMOS 1763', 16860, ' 1986-052A', ' July 16 1986', '100.1', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
 ('COSMOS 1761', 16849, ' 1986-050A', ' July 5 1986', '718.2', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) ');
-INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` agency`) VALUES
+INSERT INTO `satellitesByAgency` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `agency`) VALUES
 ('COSMOS 1759', 16798, ' 1986-047A', ' June 18 1986', '104.7', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
 ('COSMOS 1758', 16791, ' 1986-046A', ' June 12 1986', '95.7', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
 ('GORIZONT 12', 16769, ' 1986-044A', ' June 10 1986', '1435', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
@@ -1348,7 +1348,7 @@ INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDat
 ('COSMOS 1036', 11045, ' 1978-091C', ' October 4 1978', '115.1', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
 ('COSMOS 1035', 11044, ' 1978-091B', ' October 4 1978', '114.7', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
 ('COSMOS 1034', 11042, ' 1978-091A', ' October 4 1978', '114.9', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) ');
-INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` agency`) VALUES
+INSERT INTO `satellitesByAgency` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `agency`) VALUES
 ('VENERA 12 BUS', 11025, ' 1978-086A', ' September 14 1978', ' -', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
 ('VENERA 11 BUS', 11020, ' 1978-084A', ' September 9 1978', '1436.8', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
 ('COSMOS 1027', 10991, ' 1978-074A', ' July 27 1978', '104.6', ' COMMONWEALTH OF INDEPENDENT STATES (FORMER USSR) '),
@@ -1799,7 +1799,7 @@ INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDat
 ('PROBA 1', 26958, ' 2001-049B', ' October 22 2001', '96.3', ' EUROPEAN SPACE AGENCY '),
 ('ARTEMIS', 26863, ' 2001-029A', ' July 12 2001', '1450.3', ' EUROPEAN SPACE AGENCY '),
 ('INTELSAT 12 (PAS 12)', 26590, ' 2000-068A', ' October 29 2000', '1434.6', ' EUROPEAN SPACE AGENCY ');
-INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` agency`) VALUES
+INSERT INTO `satellitesByAgency` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `agency`) VALUES
 ('CLUSTER II-FM8', 26464, ' 2000-045B', ' August 9 2000', '3256.6', ' EUROPEAN SPACE AGENCY '),
 ('CLUSTER II-FM5', 26463, ' 2000-045A', ' August 9 2000', '3261.1', ' EUROPEAN SPACE AGENCY '),
 ('CLUSTER II-FM7', 26411, ' 2000-041B', ' July 16 2000', '3254.5', ' EUROPEAN SPACE AGENCY '),
@@ -2347,7 +2347,7 @@ INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDat
 ('UNISAT 5', 39421, ' 2013-066F', ' November 21 2013', '96.8', ' ITALY '),
 ('ALMASAT-1', 38078, ' 2012-006B', ' February 13 2012', '92.6', ' ITALY '),
 ('LARES', 38077, ' 2012-006A', ' February 13 2012', '114.7', ' ITALY ');
-INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` agency`) VALUES
+INSERT INTO `satellitesByAgency` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `agency`) VALUES
 ('EDUSAT', 37788, ' 2011-044A', ' August 17 2011', '97.9', ' ITALY '),
 ('SKYMED 4', 37216, ' 2010-060A', ' November 6 2010', '97.2', ' ITALY '),
 ('SICRAL 1B', 34810, ' 2009-020A', ' April 20 2009', '1436.1', ' ITALY '),
@@ -2935,7 +2935,7 @@ INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDat
 ('CHANG E 2', 37174, ' 2010-050A', ' October 1 2010', '89.9', ' PEOPLE\'S REPUBLIC OF CHINA '),
 ('ZHEDA PIXING 1C', 37167, ' 2010-047C', ' September 22 2010', '97.3', ' PEOPLE\'S REPUBLIC OF CHINA '),
 ('ZHEDA PIXING 1B', 37166, ' 2010-047B', ' September 22 2010', '97.2', ' PEOPLE\'S REPUBLIC OF CHINA ');
-INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` agency`) VALUES
+INSERT INTO `satellitesByAgency` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `agency`) VALUES
 ('YAOGAN 11', 37165, ' 2010-047A', ' September 22 2010', '97.5', ' PEOPLE\'S REPUBLIC OF CHINA '),
 ('CHINASAT 6A', 37150, ' 2010-042A', ' September 4 2010', '1436.1', ' PEOPLE\'S REPUBLIC OF CHINA '),
 ('TIANHUI 1', 36985, ' 2010-040A', ' August 24 2010', '94.5', ' PEOPLE\'S REPUBLIC OF CHINA '),
@@ -3513,7 +3513,7 @@ INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDat
 ('BUCCANEER RMM', 43014, ' 2017-073B', ' November 18 2017', '97.4', ' UNITED STATES '),
 ('NOAA 20 (JPSS 1)', 43013, ' 2017-073A', ' November 18 2017', '101.4', ' UNITED STATES '),
 ('FLOCK 3M 2', 42998, ' 2017-068M', ' October 31 2017', '94.8', ' UNITED STATES ');
-INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` agency`) VALUES
+INSERT INTO `satellitesByAgency` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `agency`) VALUES
 ('FLOCK 3M 4', 42997, ' 2017-068L', ' October 31 2017', '94.8', ' UNITED STATES '),
 ('FLOCK 3M 3', 42996, ' 2017-068K', ' October 31 2017', '94.7', ' UNITED STATES '),
 ('FLOCK 3M 1', 42995, ' 2017-068J', ' October 31 2017', '94.8', ' UNITED STATES '),
@@ -4118,7 +4118,7 @@ INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDat
 ('CHIPSAT', 27643, ' 2003-002B', ' January 13 2003', '95.5', ' UNITED STATES '),
 ('CORIOLIS', 27640, ' 2003-001A', ' January 6 2003', '101.5', ' UNITED STATES '),
 ('TRAILBLAZER 2', 27609, ' 2002-058E', ' December 20 2002', '97.4', ' UNITED STATES ');
-INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` agency`) VALUES
+INSERT INTO `satellitesByAgency` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `agency`) VALUES
 ('TDRS 10', 27566, ' 2002-055A', ' December 5 2002', '1436.1', ' UNITED STATES '),
 ('ECHOSTAR 8', 27501, ' 2002-039A', ' August 22 2002', '1461.8', ' UNITED STATES '),
 ('CONTOUR', 27457, ' 2002-034A', ' July 3 2002', '2486.1', ' UNITED STATES '),
@@ -4729,7 +4729,7 @@ INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDat
 ('OPS 5960', 4630, ' 1970-093A', ' November 6 1970', '1197.8', ' UNITED STATES '),
 ('OPS 0203 (DMSP 5A F2)', 4512, ' 1970-070A', ' September 3 1970', '100.4', ' UNITED STATES '),
 ('OPS 7329', 4510, ' 1970-069A', ' September 1 1970', '1434.9', ' UNITED STATES ');
-INSERT INTO `satellitesByAgency` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` agency`) VALUES
+INSERT INTO `satellitesByAgency` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `agency`) VALUES
 ('NNSS 19 (TRANSIT 19)', 4507, ' 1970-067A', ' August 27 1970', '106.6', ' UNITED STATES '),
 ('OPS 5346', 4418, ' 1970-046A', ' June 19 1970', '1436.4', ' UNITED STATES '),
 ('OPS 7033 (VELA 11)', 4368, ' 1970-027B', ' April 8 1970', '6697.3', ' UNITED STATES '),

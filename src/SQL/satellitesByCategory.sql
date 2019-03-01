@@ -30,18 +30,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `satellitesByCategory` (
   `satname` varchar(28) DEFAULT NULL,
-  ` satId` int(5) DEFAULT NULL,
-  ` intl_code` varchar(11) DEFAULT NULL,
-  ` launchDate` varchar(18) DEFAULT NULL,
-  ` period` varchar(6) DEFAULT NULL,
-  ` category` varchar(46) DEFAULT NULL
+  `satId` int(5) DEFAULT NULL,
+  `intl_code` varchar(11) DEFAULT NULL,
+  `launchDate` varchar(18) DEFAULT NULL,
+  `period` varchar(6) DEFAULT NULL,
+  `category` varchar(46) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `satellitesByCategory`
 --
 
-INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` category`) VALUES
+INSERT INTO `satellitesByCategory` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `category`) VALUES
 ('SL-4 R/B', 42800, ' 2017-037C', ' June 23 2017', '92.2', ' BRIGHTEST'),
 ('USA 276', 42689, ' 2017-022A', ' May 1 2017', '92.5', ' BRIGHTEST'),
 ('TK-1', 42061, ' 2017-012A', ' March 2 2017', '92.1', ' BRIGHTEST'),
@@ -670,7 +670,7 @@ INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchD
 ('LUCH (OLYMP)', 40258, ' 2014-058A', ' September 27 2014', '1436', ' GEOSTATIONARY'),
 ('USA 257 (CLIO)', 40208, ' 2014-055A', ' September 17 2014', '1436.1', ' GEOSTATIONARY'),
 ('MEASAT 3B', 40147, ' 2014-054B', ' September 11 2014', '1436.1', ' GEOSTATIONARY');
-INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` category`) VALUES
+INSERT INTO `satellitesByCategory` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `category`) VALUES
 ('OPTUS 10', 40146, ' 2014-054A', ' September 11 2014', '1436.1', ' GEOSTATIONARY'),
 ('ASIASAT 6', 40141, ' 2014-052A', ' September 7 2014', '1436.1', ' GEOSTATIONARY'),
 ('ASIASAT 8', 40107, ' 2014-046A', ' August 5 2014', '1436.1', ' GEOSTATIONARY'),
@@ -1274,7 +1274,7 @@ INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchD
 ('ITALSAT 1', 21055, ' 1991-003A', ' January 15 1991', '1440.5', ' GEOSTATIONARY'),
 ('NATO 4A', 21047, ' 1991-001A', ' January 8 1991', '1465.1', ' GEOSTATIONARY'),
 ('GSTAR 4', 20946, ' 1990-100B', ' November 20 1990', '1452.4', ' GEOSTATIONARY');
-INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` category`) VALUES
+INSERT INTO `satellitesByCategory` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `category`) VALUES
 ('SATCOM C1', 20945, ' 1990-100A', ' November 20 1990', '1451.8', ' GEOSTATIONARY'),
 ('USA 65', 20929, ' 1990-095A', ' November 13 1990', '1463.5', ' GEOSTATIONARY'),
 ('INMARSAT 2-F1', 20918, ' 1990-093A', ' October 30 1990', '1456.3', ' GEOSTATIONARY'),
@@ -1908,7 +1908,7 @@ INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchD
 ('GLOBALSTAR M073', 37193, ' 2010-054F', ' October 19 2010', '114.1', ' GLOBALSTAR'),
 ('GLOBALSTAR M075', 37192, ' 2010-054E', ' October 19 2010', '114.1', ' GLOBALSTAR'),
 ('GLOBALSTAR M077', 37191, ' 2010-054D', ' October 19 2010', '114.1', ' GLOBALSTAR');
-INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` category`) VALUES
+INSERT INTO `satellitesByCategory` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `category`) VALUES
 ('GLOBALSTAR M076', 37190, ' 2010-054C', ' October 19 2010', '114.1', ' GLOBALSTAR'),
 ('GLOBALSTAR M074', 37189, ' 2010-054B', ' October 19 2010', '114.1', ' GLOBALSTAR'),
 ('GLOBALSTAR M079', 37188, ' 2010-054A', ' October 19 2010', '114.1', ' GLOBALSTAR'),
@@ -2557,7 +2557,7 @@ INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchD
 ('COSMOS 2458 (GLONASS)', 36113, ' 2009-070C', ' December 14 2009', '675.8', ' GLONASS OPERATIONAL'),
 ('COSMOS 2457 (GLONASS)', 36112, ' 2009-070B', ' December 14 2009', '675.7', ' GLONASS OPERATIONAL'),
 ('COSMOS 2456 (GLONASS)', 36111, ' 2009-070A', ' December 14 2009', '675.7', ' GLONASS OPERATIONAL');
-INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` category`) VALUES
+INSERT INTO `satellitesByCategory` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `category`) VALUES
 ('COSMOS 2436 (GLONASS)', 32395, ' 2007-065C', ' December 25 2007', '675.7', ' GLONASS OPERATIONAL'),
 ('COSMOS 2434 (GLONASS)', 32393, ' 2007-065A', ' December 25 2007', '675.7', ' GLONASS OPERATIONAL'),
 ('COSMOS 2432 (GLONASS)', 32276, ' 2007-052B', ' October 26 2007', '675.7', ' GLONASS OPERATIONAL'),
@@ -3116,7 +3116,7 @@ INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchD
 ('APOLLO 10 LM (APS)', 3949, ' 1969-043D', ' May 18 1969', ' -', ' SPACE & EARTH SCIENCE'),
 ('APOLLO 10 LM (DPS)', 3948, ' 1969-043C', ' May 18 1969', ' -', ' SPACE & EARTH SCIENCE'),
 ('SATURN 5 R/B', 3943, ' 1969-043B', ' May 18 1969', ' -', ' SPACE & EARTH SCIENCE');
-INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` category`) VALUES
+INSERT INTO `satellitesByCategory` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `category`) VALUES
 ('MARINER 7 (MARS)', 3837, ' 1969-030A', ' March 27 1969', ' -', ' SPACE & EARTH SCIENCE'),
 ('OV1-19', 3825, ' 1969-025C', ' March 18 1969', '150.7', ' SPACE & EARTH SCIENCE'),
 ('SATURN 5 R/B', 3770, ' 1969-018B', ' March 3 1969', ' -', ' SPACE & EARTH SCIENCE'),
@@ -3763,7 +3763,7 @@ INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchD
 ('OPS 7245', 11720, ' 1980-019A', ' March 3 1980', '104.6', ' MILITARY'),
 ('OPS 9444 (DSCS 2-14)', 11622, ' 1979-098B', ' November 21 1979', '1464.2', ' MILITARY'),
 ('OPS 9443 (DSCS 2-13)', 11621, ' 1979-098A', ' November 21 1979', '1506.3', ' MILITARY');
-INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` category`) VALUES
+INSERT INTO `satellitesByCategory` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `category`) VALUES
 ('COSMOS 1124', 11509, ' 1979-077A', ' August 28 1979', '716.9', ' MILITARY'),
 ('COSMOS 1109', 11417, ' 1979-058A', ' June 27 1979', '715', ' MILITARY'),
 ('OPS 6675', 11306, ' 1979-025B', ' March 16 1979', ' -', ' MILITARY'),
@@ -4435,7 +4435,7 @@ INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchD
 ('APSTAR 2R (TELSTAR 10)', 25010, ' 1997-062A', ' October 16 1997', '1451.5', ' TV'),
 ('ECHOSTAR 3', 25004, ' 1997-059A', ' October 5 1997', '1456.4', ' TV'),
 ('NSS 5 (INTELSAT 803)', 24957, ' 1997-053A', ' September 23 1997', '1436.1', ' TV');
-INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` category`) VALUES
+INSERT INTO `satellitesByCategory` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `category`) VALUES
 ('AMC-3 (GE-3)', 24936, ' 1997-050A', ' September 4 1997', '1436.1', ' TV'),
 ('METEOSAT 7', 24932, ' 1997-049B', ' September 2 1997', '1464.8', ' TV'),
 ('W75/ABS-1B (HOT BIRD 3)', 24931, ' 1997-049A', ' September 2 1997', '1405.2', ' TV'),
@@ -5093,7 +5093,7 @@ INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchD
 ('COSMOS 1235', 12114, ' 1980-102H', ' December 23 1980', '114.6', ' STRELA'),
 ('COSMOS 1234', 12113, ' 1980-102G', ' December 23 1980', '114.6', ' STRELA'),
 ('COSMOS 1233', 12112, ' 1980-102F', ' December 23 1980', '114.7', ' STRELA');
-INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` category`) VALUES
+INSERT INTO `satellitesByCategory` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `category`) VALUES
 ('COSMOS 1232', 12111, ' 1980-102E', ' December 23 1980', '114.6', ' STRELA'),
 ('COSMOS 1231', 12110, ' 1980-102D', ' December 23 1980', '114.6', ' STRELA'),
 ('COSMOS 1230', 12109, ' 1980-102C', ' December 23 1980', '114.5', ' STRELA'),
@@ -5762,7 +5762,7 @@ INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchD
 ('LEMUR 2 SOKOLSKY', 41872, ' 2016-062D', ' October 17 2016', '94.4', ' LEMUR'),
 ('LEMUR 2 XIAOQING', 41871, ' 2016-062C', ' October 17 2016', '94.4', ' LEMUR'),
 ('LEMUR-2 PETER', 40935, ' 2015-052F', ' September 28 2015', '97.5', ' LEMUR');
-INSERT INTO `satellitesByCategory` (`satname`, ` satId`, ` intl_code`, ` launchDate`, ` period`, ` category`) VALUES
+INSERT INTO `satellitesByCategory` (`satname`, `satId`, `intl_code`, `launchDate`, `period`, `category`) VALUES
 ('LEMUR-2 JEROEN', 40934, ' 2015-052E', ' September 28 2015', '97.5', ' LEMUR'),
 ('LEMUR-2 CHRIS', 40933, ' 2015-052D', ' September 28 2015', '97.4', ' LEMUR'),
 ('LEMUR-2 JOEL', 40932, ' 2015-032C', ' September 28 2015', '97.4', ' LEMUR'),

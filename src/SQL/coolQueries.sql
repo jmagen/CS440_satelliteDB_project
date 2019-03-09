@@ -97,3 +97,31 @@ INNER JOIN Satellites ON Launches.satId = Satellites.satId
 WHERE year(Launches.Dates) < 2000 AND year(Launches.Dates) > 1970
 ORDER BY Launches.Dates ASC;
 --Cost:
+
+--SAME QUERIES, BUT AS PROCEDURES:
+DELIMITER $$
+CREATE DEFINER=`cs440_magenhej`@`%` PROCEDURE `CountSatellitesByCategoryAgencyTime`(IN `cat` VARCHAR(71), IN `agency` VARCHAR(4), IN `t1` YEAR, IN `t2` YEAR)
+    NO SQL
+SELECT organizationName, C.category, COUNT(Operates.satId) AS Total
+FROM (SELECT * FROM agencies WHERE agencies.orgCode = agency) A 
+INNER JOIN Operates on A.orgCode = Operates.orgCode 
+INNER JOIN Launches on Operates.satId = Launches.satId
+INNER JOIN (SELECT * FROM `Contains` WHERE `Contains`.`category` = cat) C on C.satId = Launches.satId
+WHERE year(Launches.Dates) <= t2 AND year(Launches.Dates) >= t1
+GROUP BY organizationName
+ORDER BY COUNT(Operates.satId) DESC$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`cs440_magenhej`@`%` PROCEDURE `GetSatellitesByCategoryAgencyTime`(IN `cat` VARCHAR(71), IN `agency` VARCHAR(4), IN `t1` YEAR, IN `t2` YEAR)
+    NO SQL
+SELECT A.organizationName, Satellites.satname, Launches.Dates
+FROM (SELECT * FROM agencies WHERE agencies.orgCode = agency) A 
+INNER JOIN Operates on A.orgCode = Operates.orgCode 
+INNER JOIN Launches on Operates.satId = Launches.satId
+INNER JOIN (SELECT * FROM `Contains` WHERE `Contains`.`category` = cat) C on C.satId = Launches.satId
+INNER JOIN Satellites ON Launches.satId = Satellites.satId
+WHERE year(Launches.Dates) <= t2 AND year(Launches.Dates) >= t1
+ORDER BY Launches.Dates ASC$$
+DELIMITER ;
+

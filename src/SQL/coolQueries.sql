@@ -42,5 +42,7 @@ select `satname`, `satId`, `intl_code`,`launchDate` FROM `satellitesByCategory`
 WHERE `category`=' SPACE & EARTH SCIENCE'
 ORDER BY `satId` DESC
 
-
+--How many satellites were launched per year?
+SELECT year(launchDate) AS Year, COUNT(*) AS Total FROM Satellites
+GROUP BY year(launchDate)
 

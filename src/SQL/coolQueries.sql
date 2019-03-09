@@ -75,3 +75,25 @@ INNER JOIN Launches on Operates.satId = Launches.satId
 GROUP BY organizationName
 ORDER BY COUNT(Operates.satId) DESC
 --Cost:
+
+--Get total number of satellites of category C operated by agency X between times i and j;
+--List the satellites as well.
+SELECT organizationName, C.category, COUNT(Operates.satId) AS Total
+FROM (SELECT * FROM agencies WHERE agencies.orgCode = 'US') A 
+INNER JOIN Operates on A.orgCode = Operates.orgCode 
+INNER JOIN Launches on Operates.satId = Launches.satId
+INNER JOIN (SELECT * FROM `Contains` WHERE `Contains`.`category` = 'MILITARY') C on C.satId = Launches.satId
+WHERE year(Launches.Dates) < 2000 AND year(Launches.Dates) > 1970
+GROUP BY organizationName
+ORDER BY COUNT(Operates.satId) DESC;
+--Cost:
+
+SELECT A.organizationName, Satellites.satname, Launches.Dates
+FROM (SELECT * FROM agencies WHERE agencies.orgCode = 'US') A 
+INNER JOIN Operates on A.orgCode = Operates.orgCode 
+INNER JOIN Launches on Operates.satId = Launches.satId
+INNER JOIN (SELECT * FROM `Contains` WHERE `Contains`.`category` = 'MILITARY') C on C.satId = Launches.satId
+INNER JOIN Satellites ON Launches.satId = Satellites.satId
+WHERE year(Launches.Dates) < 2000 AND year(Launches.Dates) > 1970
+ORDER BY Launches.Dates ASC;
+--Cost:

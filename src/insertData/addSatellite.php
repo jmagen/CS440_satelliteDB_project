@@ -31,7 +31,7 @@
 		$dates = mysqli_real_escape_string($conn, $_POST['dates']);
 		$orgcode = mysqli_real_escape_string($conn, $_POST['orgcode']);
 		
-		// attempt insert query 
+		// attempt insert query
 		$query = "INSERT INTO Satellites (satId, satname, intl_code, period) VALUES ('$satId', '$satname', '$intl_code', '$period')";
 		if(mysqli_query($conn, $query)){
 			$msg =  "Record added successfully.<p>";
@@ -50,7 +50,7 @@
 		} else{
 			echo "ERROR: Could not able to execute $query. " . mysqli_error($conn);
 		}
-		$query = "INSERT INTO Operates (orgCode, satId) VALUES ('$orgCode', '$satId')";
+		$query = "INSERT INTO Operates (orgCode, satId) VALUES ('$orgcode', '$satId')";
 		if(mysqli_query($conn, $query)){
 			$msg =  "Record added successfully.<p>";
 		} else{

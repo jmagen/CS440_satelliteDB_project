@@ -5,7 +5,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE  `categories` (
   `name` varchar(71) NOT NULL,
-  `count` int(5) NOT NULL
+  `count` int(5) NOT NULL,
+  CONSTRAINT PK_Categories PRIMARY KEY (name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

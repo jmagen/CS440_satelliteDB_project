@@ -30,7 +30,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `agencies` (
   `organizationName` varchar(71) DEFAULT NULL,
-  `orgCode` varchar(4) DEFAULT NULL
+  `orgCode` varchar(4) DEFAULT NULL,
+  CONSTRAINT PK_agencies PRIMARY KEY (orgCode)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

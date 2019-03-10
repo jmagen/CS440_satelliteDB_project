@@ -30,7 +30,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `Contains` (
   `category` varchar(46) DEFAULT NULL,
-  `satId` int(5) DEFAULT NULL
+  `satId` int(5) DEFAULT NULL,
+  CONSTRAINT PK_Contains PRIMARY KEY (category,satId),
+  CONSTRAINT FK_satid_contains FOREIGN KEY (satId) REFERENCES Satellites(satId),
+  CONSTRAINT FK_category_contains FOREIGN KEY (category) REFERENCES categories(name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

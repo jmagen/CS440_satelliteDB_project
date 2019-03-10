@@ -30,7 +30,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `Launches` (
   `satId` int(5) DEFAULT NULL,
-  `Dates` varchar(48) DEFAULT NULL
+  `Dates` varchar(48) DEFAULT NULL,
+  CONSTRAINT PK_Launches PRIMARY KEY (satId),
+  CONSTRAINT FK_satid FOREIGN KEY (satId) REFERENCES Satellites(satId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

@@ -32,7 +32,8 @@ CREATE TABLE `Satellites` (
   `satId` int(5) DEFAULT NULL,
   `satname` varchar(28) DEFAULT NULL,
   `intl_code` varchar(11) DEFAULT NULL,
-  `period` decimal(10,1) DEFAULT NULL
+  `period` decimal(10,1) DEFAULT NULL,
+  CONSTRAINT PK_Satellites PRIMARY KEY (satId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

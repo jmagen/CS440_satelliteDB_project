@@ -27,7 +27,7 @@
 		$satname = mysqli_real_escape_string($conn, $_POST['satname']);
 		$intl_code = mysqli_real_escape_string($conn, $_POST['intl_code']);
 		$period = mysqli_real_escape_string($conn, $_POST['period']);
-		$category = mysqli_real_escape_string($conn, $_POST['Category']);
+		$category = mysqli_real_escape_string($conn, $_POST['category']);
 		$dates = mysqli_real_escape_string($conn, $_POST['dates']);
 		$orgcode = mysqli_real_escape_string($conn, $_POST['orgcode']);
 		

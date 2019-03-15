@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: classmysql.engr.oregonstate.edu:3306
--- Generation Time: Mar 10, 2019 at 06:18 PM
+-- Generation Time: Mar 14, 2019 at 09:10 PM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.0.33
 
@@ -34,10 +34,10 @@ INNER JOIN Launches on Satellites.satId = Launches.satId
 WHERE year(Launches.Dates) <= t2 AND year(Launches.Dates) >= t1
 ORDER BY Launches.Dates ASC$$
 
-CREATE DEFINER=`cs440_magenhej`@`%` PROCEDURE `CategoriesOperatedByAgency` (IN `org` VARCHAR(4))  NO SQL
+CREATE DEFINER=`cs440_magenhej`@`%` PROCEDURE `CategoriesOperatedByAgency` (IN `agency` VARCHAR(4))  NO SQL
     COMMENT 'List categories of satellites owned by agency'
 SELECT DISTINCT `Contains`.category, COUNT(Operates.satId) AS Total
-FROM (SELECT * FROM agencies WHERE agencies.orgCode = org) A 
+FROM (SELECT * FROM agencies WHERE agencies.orgCode = agency) A 
 INNER JOIN Operates on A.orgCode = Operates.orgCode 
 INNER JOIN Launches on Operates.satId = Launches.satId
 INNER JOIN `Contains` on `Contains`.satId = Launches.satId
@@ -92,6 +92,14 @@ INNER JOIN Satellites ON Launches.satId = Satellites.satId
 WHERE year(Launches.Dates) <= t2 AND year(Launches.Dates) >= t1
 ORDER BY Launches.Dates ASC$$
 
+CREATE DEFINER=`cs440_magenhej`@`%` PROCEDURE `INSERT_SATELLITE` (IN `satId` INT, IN `satname` VARCHAR(71), IN `intl_code` VARCHAR(11), IN `period` DECIMAL(10,1), IN `category` VARCHAR(71), IN `dates` DATE, IN `orgcode` VARCHAR(4))  NO SQL
+BEGIN
+INSERT INTO Satellites (satId, satname, intl_code, period) VALUES (satId, satname, intl_code, period);
+INSERT INTO Launches (satId, dates) VALUES (satId, dates);
+INSERT INTO `Contains` (category, satId) VALUES (category, satId);
+INSERT INTO Operates (orgCode, satId) VALUES (orgcode, satId);
+END$$
+
 CREATE DEFINER=`cs440_magenhej`@`%` PROCEDURE `RankAgenciesByCategory` (IN `cat` VARCHAR(71))  NO SQL
     COMMENT 'Lists agencies by their number of satellites in the category'
 SELECT organizationName, C.category, COUNT(Operates.satId) AS Total
@@ -112,11 +120,11 @@ INNER JOIN Satellites ON Launches.satId = Satellites.satId
 WHERE year(Launches.Dates) <= t2 AND year(Launches.Dates) >= t1
 ORDER BY Launches.Dates ASC$$
 
-CREATE DEFINER=`cs440_magenhej`@`%` PROCEDURE `SatellitesLaunchedByOrganizationPerYear` (IN `org` VARCHAR(4))  NO SQL
+CREATE DEFINER=`cs440_magenhej`@`%` PROCEDURE `SatellitesLaunchedByOrganizationPerYear` (IN `agency` VARCHAR(4))  NO SQL
 SELECT year(Launches.Dates) AS Year, COUNT(*) AS Total 
 FROM Satellites INNER JOIN Launches on Launches.satId = Satellites.satId 
 INNER JOIN Operates on Operates.satId = Satellites.satId
-INNER JOIN (SELECT * FROM agencies WHERE agencies.orgCode = org) A on A.orgCode = Operates.orgCode
+INNER JOIN (SELECT * FROM agencies WHERE agencies.orgCode = agency) A on A.orgCode = Operates.orgCode
 GROUP BY year(Launches.Dates)$$
 
 CREATE DEFINER=`cs440_magenhej`@`%` PROCEDURE `SatellitesLaunchedPerYear` ()  NO SQL
@@ -3281,6 +3289,7 @@ INSERT INTO `Contains` (`category`, `satId`) VALUES
 ('MILITARY', 6154),
 ('MILITARY', 6192),
 ('MILITARY', 6206),
+('MILITARY', 6500),
 ('MILITARY', 6791),
 ('MILITARY', 6822),
 ('MILITARY', 6916),
@@ -4538,9 +4547,9 @@ INSERT INTO `Contains` (`category`, `satId`) VALUES
 ('SPACE & EARTH SCIENCE', 36598),
 ('SPACE & EARTH SCIENCE', 36744),
 ('SPACE & EARTH SCIENCE', 36796),
-('SPACE & EARTH SCIENCE', 36834),
-('SPACE & EARTH SCIENCE', 36985);
+('SPACE & EARTH SCIENCE', 36834);
 INSERT INTO `Contains` (`category`, `satId`) VALUES
+('SPACE & EARTH SCIENCE', 36985),
 ('SPACE & EARTH SCIENCE', 37165),
 ('SPACE & EARTH SCIENCE', 37174),
 ('SPACE & EARTH SCIENCE', 37179),
@@ -5954,24 +5963,6 @@ INSERT INTO `Contains` (`category`, `satId`) VALUES
 ('YAOGAN', 43275),
 ('YAOGAN', 43276),
 ('YAOGAN', 43277);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `Dates`
--- (See below for the actual view)
---
-CREATE TABLE `Dates` (
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `LaunchDates`
--- (See below for the actual view)
---
-CREATE TABLE `LaunchDates` (
-);
 
 -- --------------------------------------------------------
 
@@ -10604,7 +10595,8 @@ INSERT INTO `Launches` (`satId`, `Dates`) VALUES
 (43931, '2019-01-11'),
 (43933, '2019-01-18'),
 (43935, '2019-01-18'),
-(43937, '2019-01-18');
+(43937, '2019-01-18'),
+(6500, '2019-03-14');
 
 -- --------------------------------------------------------
 
@@ -15237,7 +15229,8 @@ INSERT INTO `Operates` (`orgCode`, `satId`) VALUES
 ('VENZ', 42954),
 ('VTNM', 32767),
 ('VTNM', 38332),
-('VTNM', 39160);
+('VTNM', 39160),
+('US', 6500);
 
 -- --------------------------------------------------------
 
@@ -15708,6 +15701,7 @@ INSERT INTO `Satellites` (`satId`, `satname`, `intl_code`, `period`) VALUES
 (6392, 'METEOR 1-14', '1973-015A', '102.3'),
 (6421, 'PIONEER 11', '1973-019A', '0.0'),
 (6437, 'ANIK A2 (TELESAT 2)', '1973-023A', '1443.0'),
+(6500, 'TEST', '2019-003A', '115.6'),
 (6659, 'METEOR 1-15', '1973-034A', '102.1'),
 (6675, 'COSMOS 564', '1973-037A', '114.6'),
 (6676, 'COSMOS 565', '1973-037B', '115.3'),
@@ -16400,9 +16394,9 @@ INSERT INTO `Satellites` (`satId`, `satname`, `intl_code`, `period`) VALUES
 (14174, 'COSMOS 1476', '1983-069D', '115.0'),
 (14175, 'COSMOS 1477', '1983-069E', '115.2'),
 (14176, 'COSMOS 1478', '1983-069F', '115.4'),
-(14177, 'COSMOS 1479', '1983-069G', '115.6'),
-(14178, 'COSMOS 1480', '1983-069H', '115.8');
+(14177, 'COSMOS 1479', '1983-069G', '115.6');
 INSERT INTO `Satellites` (`satId`, `satname`, `intl_code`, `period`) VALUES
+(14178, 'COSMOS 1480', '1983-069H', '115.8'),
 (14180, 'GB 3', '1983-056G', '106.8'),
 (14182, 'COSMOS 1481', '1983-070A', '707.3'),
 (14189, 'OPS 9794 (NAVSTAR 8)', '1983-072A', '751.1'),
@@ -17520,9 +17514,9 @@ INSERT INTO `Satellites` (`satId`, `satname`, `intl_code`, `period`) VALUES
 (24883, 'ORBVIEW 2 (SEASTAR)', '1997-037A', '100.5'),
 (24891, 'PAS 6', '1997-040A', '1536.8'),
 (24894, 'COSMOS 2345', '1997-041A', '1436.2'),
-(24901, 'ABS 3', '1997-042A', '1450.7'),
-(24903, 'IRIDIUM 26', '1997-043A', '100.3');
+(24901, 'ABS 3', '1997-042A', '1450.7');
 INSERT INTO `Satellites` (`satId`, `satname`, `intl_code`, `period`) VALUES
+(24903, 'IRIDIUM 26', '1997-043A', '100.3'),
 (24905, 'IRIDIUM 46', '1997-043C', '91.5'),
 (24907, 'IRIDIUM 22', '1997-043E', '100.4'),
 (24912, 'ACE', '1997-045A', '0.0'),
@@ -18653,9 +18647,9 @@ INSERT INTO `Satellites` (`satId`, `satname`, `intl_code`, `period`) VALUES
 (37838, 'MEGHA-TROPIQUES', '2011-058A', '102.2'),
 (37839, 'JUGNU', '2011-058B', '101.9'),
 (37840, 'VESSELSAT 1', '2011-058C', '102.1'),
-(37841, 'SRMSAT', '2011-058D', '102.1'),
-(37843, 'VIASAT 1', '2011-059A', '1436.1');
+(37841, 'SRMSAT', '2011-058D', '102.1');
 INSERT INTO `Satellites` (`satId`, `satname`, `intl_code`, `period`) VALUES
+(37843, 'VIASAT 1', '2011-059A', '1436.1'),
 (37847, 'GALILEO-FM2', '2011-060B', '844.7'),
 (37849, 'SUOMI NPP', '2011-061A', '101.4'),
 (37851, 'DICE 1', '2011-061B', '95.8'),
@@ -19801,9 +19795,9 @@ INSERT INTO `Satellites` (`satId`, `satname`, `intl_code`, `period`) VALUES
 (43678, 'DIWATA 2B', '2018-084H', '96.5'),
 (43679, 'STARS-AO', '2018-084I', '96.5'),
 (43683, 'BEIDOU 3G1', '2018-085A', '1436.2'),
-(43693, 'IRVINE01', '2018-088D', '94.7'),
-(43695, 'LEMUR 2 ZUPANSKI', '2018-088F', '94.7');
+(43693, 'IRVINE01', '2018-088D', '94.7');
 INSERT INTO `Satellites` (`satId`, `satname`, `intl_code`, `period`) VALUES
+(43695, 'LEMUR 2 ZUPANSKI', '2018-088F', '94.7'),
 (43697, 'LEMUR 2 CHANUSIAK', '2018-088H', '94.7'),
 (43698, 'GSAT 29', '2018-089A', '1436.1'),
 (43702, 'PROGRESS MS-10', '2018-091A', '92.7'),
@@ -19876,24 +19870,6 @@ INSERT INTO `Satellites` (`satId`, `satname`, `intl_code`, `period`) VALUES
 (43933, 'ORIGAMISAT-1 (FO-98)', '2019-003B', '94.6'),
 (43935, 'MICRODRAGON', '2019-003D', '94.6'),
 (43937, 'NEXUS (FUJI-OSCAR 99)', '2019-003F', '94.5');
-
--- --------------------------------------------------------
-
---
--- Structure for view `Dates`
---
-DROP TABLE IF EXISTS `Dates`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`cs440_magenhej`@`%` SQL SECURITY DEFINER VIEW `Dates`  AS  select substring_index(`Satellites`.`launchDate`,' ',-(1)) AS `Year`,substring_index(`Satellites`.`launchDate`,' ',1) AS `Month`,substring_index(substring_index(`Satellites`.`launchDate`,' ',2),' ',-(1)) AS `Day` from `Satellites` where 1 ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `LaunchDates`
---
-DROP TABLE IF EXISTS `LaunchDates`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`cs440_magenhej`@`%` SQL SECURITY DEFINER VIEW `LaunchDates`  AS  select concat(`Dates`.`Year`,'-',convert(substring_index(substring_index(str_to_date(`Dates`.`Month`,'%M'),'-',-(2)),'-',1) using utf8),'-',`Dates`.`Day`) AS `LDates` from `Dates` where 1 ;
 
 --
 -- Indexes for dumped tables

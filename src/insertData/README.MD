@@ -1,1 +1,0 @@
-Change database info both in addSatellite and in connectvars to match your own database login info, otherwise it will fail.
